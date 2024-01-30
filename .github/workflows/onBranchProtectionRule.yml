@@ -25,8 +25,7 @@ jobs:
       - name: Log GitHub Event
         env:
           GITHUB_EVENT: ${{ toJson(github.event) }}
-        run: |
-          echo "$GITHUB_EVENT"
+        run: echo "$GITHUB_EVENT"
 
       - name: Log GitHub Event On JavaScript
         env:
