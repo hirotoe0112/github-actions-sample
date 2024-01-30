@@ -1,0 +1,31 @@
+name: On Branch Protection Rule
+
+on:
+  branch_protection_rule:
+    types: 
+      - created
+      - edited
+
+jobs:
+  onBranchProtectionRuleLog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Log GitHub Event
+        run: echo ${{ github.event }}
+
+      - name: Log GitHub Event On JavaScript
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node index.js
