@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Log GitHub Event
-        run: echo ${{ github.event }}
+        run: echo ${{ toJson(github.event) }}
 
       - name: Log GitHub Event On JavaScript
         env:
