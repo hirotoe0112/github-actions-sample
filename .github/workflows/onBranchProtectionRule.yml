@@ -1,6 +1,10 @@
 name: On Branch Protection Rule
 
-on: branch_protection_rule
+on:
+  branch_protection_rule:
+    types:
+      - created
+      - edited
 
 jobs:
   onBranchProtectionRuleLog:
